@@ -9,7 +9,7 @@ case $- in
 esac
 
 # manually defined
-alias set_proxy="export HTTP_PROXY=127.0.0.1:2080 && export HTTPS_PROXY=127.0.0.1:2080"
+alias set_proxy="export HTTP_PROXY=socks5://127.0.0.1:2080 && export HTTPS_PROXY=socks5://127.0.0.1:2080"
 alias unset_proxy="unset HTTP_PROXY && unset HTTPS_PROXY"
 
 # don't put duplicate lines or lines starting with space in the history.
