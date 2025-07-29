@@ -126,8 +126,9 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+vim.keymap.set('t', '<C-[>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 -- manually added
-vim.keymap.set('i', '<C-[>', '<Esc>', { desc = 'use ctrl+c/ctrl+f to press Esc' })
+vim.keymap.set('i', '<C-[>', '<Esc>', { desc = 'use ctrl+[ to press Esc' })
 -- end manually added
 
 -- TIP: Disable arrow keys in normal mode
@@ -244,7 +245,7 @@ require('lazy').setup({
   -- Then, because we use the `opts` key (recommended), the configuration runs
   -- after the plugin has been loaded as `require(MODULE).setup(opts)`.
 
-  -- add plugins here:
+  -- add plugins manually here:
   { 'ellisonleao/glow.nvim', config = true, cmd = 'Glow' },
   -- end adding plugins
   --
