@@ -210,7 +210,25 @@ return {
       local servers = {
         -- clangd = {},
         -- gopls = {},
-        -- pyright = {},
+        ruff = {
+          init_options = {
+            settings = {
+              args = { '--line-length=88' },
+            },
+          },
+        },
+
+        pyright = {
+          settings = {
+            python = {
+              analysis = {
+                typeCheckingMode = 'strict', -- can be "basic" if you prefer
+                autoImportCompletions = true,
+                diagnosticMode = 'workspace',
+              },
+            },
+          },
+        },
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -253,6 +271,9 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'black', -- Python formatter
+        'isort', -- Python import sorter
+        'ruff', -- Python linter
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
