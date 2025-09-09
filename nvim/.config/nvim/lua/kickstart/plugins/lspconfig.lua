@@ -93,14 +93,14 @@ return {
           map('grd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
 
           -- Jump to definition vertically
-          map('grvd', function()
-            vim.cmd 'vsplit'
+          map('grv', function()
+            vim.cmd 'split'
             vim.lsp.buf.definition()
           end, '[G]oto [V]ertical [D]efinition')
 
           -- Jump to definition horizontally
-          map('grhd', function()
-            vim.cmd 'split'
+          map('grh', function()
+            vim.cmd 'vsplit'
             vim.lsp.buf.definition()
           end, '[G]oto [H]orizontal [D]efinition')
 
