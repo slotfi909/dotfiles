@@ -15,8 +15,14 @@ vim.keymap.set('n', '<C-s>', '<cmd> w <CR>', opts)
 -- quit file
 vim.keymap.set('n', '<C-q>', '<cmd> q <CR>', opts)
 
--- delete single character without copying into register
+-- delete single character without copying into unnamed register
 vim.keymap.set('n', 'x', '"_x', opts)
+
+-- delete line without storing to unnamed register
+vim.keymap.set('n', 'dx', '"_dd', { desc = 'remove line without storing in clipboard' })
+
+-- delete current buffer and switch to previous buffer
+vim.keymap.set('n', 'bpd', ':bp | bd#', { desc = 'delete current buffer and display previous buffer' })
 
 -- Find and center
 vim.keymap.set('n', 'n', 'nzzzv')
@@ -64,5 +70,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.hl.on_yank()
   end,
 })
+
+-- define command delete current buffer and switch to previous buffer
+vim.api.nvim_create_user_command('Bpd', function()
+  vim.cmd 'bp | bd #'
+end, { bang = false })
+
 
 -- vim: ts=2 sts=2 sw=2 et
