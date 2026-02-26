@@ -3,6 +3,15 @@
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
+-- vim.api.nvim_create_autocmd('FileType', {
+--  pattern = 'swift',
+--  callback = function()
+--    vim.b.minipairs_disable = true
+--    vim.b.coc_enabled = false -- if using coc
+-- Disable any tree-sitter integration
+--  end,
+-- })
+
 -- Make line numbers default
 vim.o.number = true
 -- You can also add relative line numbers, to help with jumping.

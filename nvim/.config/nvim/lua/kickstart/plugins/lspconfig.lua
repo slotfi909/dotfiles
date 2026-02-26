@@ -210,6 +210,17 @@ return {
       --  So, we create new capabilities with blink.cmp, and then broadcast that to the servers.
       local capabilities = require('blink.cmp').get_lsp_capabilities()
 
+      -----------------------------------------------
+      --- manually added:
+      local lspconfig = require 'lspconfig'
+
+      lspconfig.sourcekit.setup {
+        cmd = { 'sourcekit-lsp' },
+        filetypes = { 'swift' },
+        root_dir = lspconfig.util.root_pattern('Package.swift', '.git'),
+      }
+      -----------------------------------------------
+
       -- Enable the following language servers
       --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
       --
