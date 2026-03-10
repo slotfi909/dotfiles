@@ -24,6 +24,9 @@ vim.keymap.set('n', 'dx', '"_dd', { desc = 'remove line without storing in clipb
 -- delete current buffer and switch to previous buffer
 vim.keymap.set('n', 'bpd', ':bp | bd#', { desc = 'delete current buffer and display previous buffer' })
 
+-- put current word inside double quotation
+vim.keymap.set('n', '<leader>"', 'bi"<Esc>ea"<Esc>', { desc = 'put current word inside double quotation' })
+
 -- Find and center
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
@@ -75,6 +78,5 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.api.nvim_create_user_command('Bpd', function()
   vim.cmd 'bp | bd #'
 end, { bang = false })
-
 
 -- vim: ts=2 sts=2 sw=2 et
