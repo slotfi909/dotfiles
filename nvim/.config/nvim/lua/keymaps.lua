@@ -27,6 +27,9 @@ vim.keymap.set('n', 'bpd', ':bp | bd#', { desc = 'delete current buffer and disp
 -- put current word inside double quotation
 vim.keymap.set('n', '<leader>"', 'bi"<Esc>ea"<Esc>', { desc = 'put current word inside double quotation' })
 
+-- put current selection inside double quotation
+vim.keymap.set('v', '<leader>"', '<Esc>`>a"<Esc>`<i"<Esc>', { desc = 'wrap selection with double quotes' })
+
 -- Find and center
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
