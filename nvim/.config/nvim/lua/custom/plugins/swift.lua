@@ -1,9 +1,21 @@
 return {
-  'devswiftzone/swift.nvim',
-  ft = 'swift',
-  config = function()
-    require('swift').setup {
-      -- Your configuration here
-    }
-  end,
+  {
+    'devswiftzone/swift.nvim',
+    ft = 'swift',
+    dependencies = {
+      'neovim/nvim-lspconfig',
+    },
+
+    config = function()
+      require('swift').setup {
+        features = {
+          lsp = {
+            auto_setup = false,
+          },
+        },
+      }
+
+      vim.lsp.enable 'sourcekit'
+    end,
+  },
 }

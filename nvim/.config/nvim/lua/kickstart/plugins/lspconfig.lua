@@ -212,13 +212,14 @@ return {
 
       -----------------------------------------------
       --- manually added:
-      local lspconfig = require 'lspconfig'
 
-      lspconfig.sourcekit.setup {
+      vim.lsp.config('sourcekit', {
         cmd = { 'sourcekit-lsp' },
         filetypes = { 'swift' },
-        root_dir = lspconfig.util.root_pattern('Package.swift', '.git'),
-      }
+        root_dir = vim.fs.root(0, { 'Package.swift', '.git' }),
+      })
+
+      vim.lsp.enable 'sourcekit'
       -----------------------------------------------
 
       -- Enable the following language servers
