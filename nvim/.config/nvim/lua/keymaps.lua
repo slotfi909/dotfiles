@@ -24,6 +24,10 @@ vim.keymap.set('n', 'dx', '"_dd', { desc = 'remove line without storing in clipb
 -- delete current buffer and switch to previous buffer
 vim.keymap.set('n', 'bpd', ':bp | bd#', { desc = 'delete current buffer and display previous buffer' })
 
+-- Switch buffers with Tab / Shift+Tab
+vim.keymap.set('n', '<Tab>', '<cmd>bn<CR>', { desc = 'Go to next buffer' })
+vim.keymap.set('n', '<S-Tab>', '<cmd>bp<CR>', { desc = 'Go to previous buffer' })
+
 -- put current word inside double quotation
 vim.keymap.set('n', '<leader>"', 'bi"<Esc>ea"<Esc>', { desc = 'put current word inside double quotation' })
 
